@@ -20,10 +20,10 @@ class Migration(migrations.Migration):
             field=models.IntegerField(db_index=True),
         ),
         migrations.AlterIndexTogether(
-            name="calendarrelation", index_together={("content_type", "object_id")}
+            name="calendarrelation",index=models.Index(fields=["content_type", "object_id"], name="evsent_start_end_idx"),
         ),
         migrations.AlterIndexTogether(
-            name="eventrelation", index_together={("content_type", "object_id")}
+            name="eventrelation", index=models.Index(fields=["content_type", "object_id"], name="evssent_start_end_idx"),
         ),
         migrations.AlterField(
             model_name="calendar",
