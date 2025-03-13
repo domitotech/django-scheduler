@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
             name="start",
             field=models.DateTimeField(verbose_name="start", db_index=True),
         ),
-        AddIndex("event",models.Index(fields=["start", "end"], name="event_start_end_idx"),),
-        AddIndex("occurrence", models.Index(fields=["start", "end"], name="event_start_end_idx"),
+        AddIndex("event",models.Index(fields=["start", "end"], name="event_start_end_idx1"),),
+        AddIndex("occurrence", models.Index(fields=["start", "end"], name="event_start_end_idx2"),
         ),
     ]
