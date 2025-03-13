@@ -41,8 +41,8 @@ class Migration(migrations.Migration):
             name="start",
             field=models.DateTimeField(verbose_name="start", db_index=True),
         ),
-        migrations.AlterIndexTogether(name="event", index=models.Index(fields=["start", "end"], name="event_start_end_idx"),),
+        migrations.AlterIndexTogether(name="event", index_together={("start", "end")}),
         migrations.AlterIndexTogether(
-            name="occurrence", index=models.Index(fields=["start", "end"], name="event_start_end_idx"),
+            name="occurrence", index_together={("start", "end")}
         ),
     ]
