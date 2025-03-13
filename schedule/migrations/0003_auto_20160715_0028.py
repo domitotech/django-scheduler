@@ -1,4 +1,5 @@
 from django.db import migrations, models
+from django.db.migrations import AddIndex
 
 
 class Migration(migrations.Migration):
@@ -41,8 +42,7 @@ class Migration(migrations.Migration):
             name="start",
             field=models.DateTimeField(verbose_name="start", db_index=True),
         ),
-        migrations.AlterIndexTogether(name="event", index=models.Index(fields=["start", "end"], name="event_start_end_idx"),),
-        migrations.AlterIndexTogether(
-            name="occurrence", index=models.Index(fields=["start", "end"], name="event_start_end_idx"),
+        AddIndex("event",models.Index(fields=["start", "end"], name="event_start_end_idx"),),
+        AddIndex("occurrence", models.Index(fields=["start", "end"], name="event_start_end_idx"),
         ),
     ]
